@@ -159,13 +159,13 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 	MainFrame.Name = "MainFrame"
 	MainFrame.Parent = MainFrameGlow
 	MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-	MainFrame.BackgroundColor3 = Color3.fromRGB(21, 18, 45)
+	MainFrame.BackgroundColor3 = Color3.fromRGB(35,35,35)
 	MainFrame.BorderSizePixel = 0
 	MainFrame.Position = UDim2.new(0.5, 0,0.5, 0)
 	MainFrame.Size = UDim2.new(0, 0, 0, 0)
 	MainFrame.ClipsDescendants = true
-	MainFrame.BackgroundTransparency = 0
-	
+	MainFrame.BackgroundTransparency = .5
+
 	Close.Name = "Close"
 	Close.Parent = MainFrame
 	Close.AnchorPoint = Vector2.new(0.1, 0.9)
@@ -182,8 +182,8 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 	MainFrameGlow.Name = "MainFrameGlow"
 	MainFrameGlow.Parent = Library
 	MainFrameGlow.AnchorPoint = Vector2.new(0.5, 0.5)
-	MainFrameGlow.BackgroundColor3 = Color3.fromRGB(21, 18, 45)
-	MainFrameGlow.BackgroundTransparency = 1.000
+	MainFrameGlow.BackgroundColor3 = Color3.fromRGB(0, 24, 59)
+	MainFrameGlow.BackgroundTransparency = 0
 	MainFrameGlow.BorderSizePixel = 0
 	MainFrameGlow.Position = UDim2.new(0.5, 0, 0.5, 0)
 	MainFrameGlow.Size = UDim2.new(0, 0, 0, 0)
@@ -425,11 +425,11 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 
 	AllPages.Name = "AllPages"
 	AllPages.Parent = MainFrame
-	AllPages.BackgroundColor3 = Color3.fromRGB(24, 21, 48)
+	AllPages.BackgroundColor3 = Color3.fromRGB(35,35,35)
 	AllPages.BorderSizePixel = 0
 	AllPages.Position = UDim2.new(0.123, 0,0.139, 0)
 	AllPages.Size = UDim2.new(0, 381, 0, 271)
-	AllPages.BackgroundTransparency = 0
+	AllPages.BackgroundTransparency = .25
 	AllPages.Visible = true
 
 	local tog3 = false
@@ -497,11 +497,15 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 			ShadowFrame.Visible = false
 		end
 	end)
-	
+
 	Close.MouseButton1Click:Connect(function()
 		Library:Destroy()
 	end)
 	
+	local function changeuicolor(color)
+		MainFrameGlow.BackgroundColor3 = color
+	end
+
 	local function YLNRBC_fake_script() -- MainTabsBtn.MainTabsBtnScript 
 		local script = Instance.new('LocalScript', MainTabsBtn)
 
@@ -940,11 +944,11 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 
 			SlideFrame.Name = "SlideFrame"
 			SlideFrame.Parent = SliderTitle
-			SlideFrame.BackgroundColor3 = Color3.fromRGB(74, 68, 94)
+			SlideFrame.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
 			SlideFrame.BorderSizePixel = 0
 			SlideFrame.Position = UDim2.new(0.003, 0,0.945, 0)
 			SlideFrame.Size = UDim2.new(0, 340,0, 3)
-			SlideFrame.BackgroundTransparency = 0
+			SlideFrame.BackgroundTransparency = .8
 
 			SlideFrameCorner.Name = "SlideFrameCorner"
 			SlideFrameCorner.Parent = SlideFrame
@@ -967,8 +971,8 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 			Value.Name = "Value"
 			Value.Parent = SliderTitle
 			Value.AnchorPoint = Vector2.new(1, 0.5)
-			Value.BackgroundColor3 = Color3.fromRGB(74, 68, 94)
-			Value.BackgroundTransparency = 0
+			Value.BackgroundColor3 = Color3.fromRGB(80,80,80)
+			Value.BackgroundTransparency = .6
 			Value.Position = UDim2.new(0.983, 0,0.484, 0)
 			Value.Size = UDim2.new(0, 38, 0, 21)
 			Value.Font = Enum.Font.Gotham
@@ -1114,7 +1118,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 			TextBox.PlaceholderText = placeholdertext
 			TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 			TextBox.TextSize = 15.000
-			
+
 			TextBox:GetPropertyChangedSignal("Text"):Connect(function()
 				pcall(callback, TextBox.Text)
 			end)
@@ -1196,8 +1200,8 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 			DropItemHolder.Name = "DropItemHolder"
 			DropItemHolder.Parent = NewPages
 			DropItemHolder.Active = true
-			DropItemHolder.BackgroundColor3 = Color3.fromRGB(29, 26, 53)
-			DropItemHolder.BackgroundTransparency = 0
+			DropItemHolder.BackgroundColor3 = Color3.fromRGB(30,30,30)
+			DropItemHolder.BackgroundTransparency = .45
 			DropItemHolder.BorderSizePixel = 0
 			DropItemHolder.Position = UDim2.new(0, 0, 0.202399909, 0)
 			DropItemHolder.Size = UDim2.new(0, 375, 0, 0)
