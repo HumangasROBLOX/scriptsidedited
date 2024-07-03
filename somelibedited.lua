@@ -31,6 +31,7 @@ local WindowTable = {}
 function WindowTable:Window(Htitle,GMtitle,toclose)
 	local Library = Instance.new("ScreenGui")
 	local MainFrame = Instance.new("Frame")
+	local Close = Instance.new("TextButton")
 	local MainFrameGlow = Instance.new("Frame")
 	local MainFrameGlow1 = Instance.new("ImageLabel")
 	local MainFrameGlow2 = Instance.new("ImageLabel")
@@ -164,6 +165,19 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 	MainFrame.Size = UDim2.new(0, 0, 0, 0)
 	MainFrame.ClipsDescendants = true
 	MainFrame.BackgroundTransparency = 0
+	
+	Close.Name = "Close"
+	Close.Parent = MainFrame
+	Close.AnchorPoint = Vector2.new(0.1, 0.1)
+	Close.Text = "X"
+	Close.Font = Enum.Font.GothamBold
+	Close.TextScaled = true
+	Close.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Close.BorderSizePixel = 0
+	Close.Position = UDim2.new(0.9, 0,0.9, 0)
+	Close.Size = UDim2.new(.1, 0, 0, .1)
+	Close.ClipsDescendants = true
+	Close.BackgroundTransparency = 1
 
 	MainFrameGlow.Name = "MainFrameGlow"
 	MainFrameGlow.Parent = Library
@@ -483,6 +497,11 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 			ShadowFrame.Visible = false
 		end
 	end)
+	
+	Close.MouseButton1Click:Connect(function()
+		Library:Destroy()
+	end)
+	
 	local function YLNRBC_fake_script() -- MainTabsBtn.MainTabsBtnScript 
 		local script = Instance.new('LocalScript', MainTabsBtn)
 
