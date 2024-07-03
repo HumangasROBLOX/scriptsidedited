@@ -1079,10 +1079,11 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 			LabelText.TextSize = 14.000
 			NewPages.CanvasSize = UDim2.new(0, 0, 0, ElementListing.AbsoluteContentSize.Y)
 		end
-		
-		function ElementHandler:TextBox(text)
+
+		function ElementHandler:TextBox(text, placeholdertext, callback)
 			local TextBox = Instance.new("TextBox")
 			local TextBoxTitle = Instance.new("TextLabel")
+			callback = callback or function() end
 
 			TextBox.Name = "TextBox"
 			TextBox.Parent = NewPages
@@ -1091,21 +1092,16 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 			TextBox.Size = UDim2.new(0, 375, 0, 32)
 			TextBox.Font = Enum.Font.SourceSans
 			TextBox.Text = ""
+			TextBox.PlaceholderText = "Walkspeed"
 			TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
 			TextBox.TextSize = 14.000
 			
-			TextBoxTitle.Name = "TextBoxTitle"
-			TextBoxTitle.Parent = TextBox
-			TextBoxTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TextBoxTitle.BackgroundTransparency = 1.000
-			TextBoxTitle.Size = UDim2.new(1, 0, 1, 0)
-			TextBoxTitle.Font = Enum.Font.Gotham
-			TextBoxTitle.Text = text
-			TextBoxTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-			TextBoxTitle.TextSize = 14.000
+			TextBox:GetPropertyChangedSignal("Text"):Connect(function()
+				callback = TextBox.Text
+			end)
 			NewPages.CanvasSize = UDim2.new(0, 0, 0, ElementListing.AbsoluteContentSize.Y)
 		end
-		
+
 		function ElementHandler:Dropdown(text, list, callback)
 			local DropToggled = false
 			local ItemCount = 0
