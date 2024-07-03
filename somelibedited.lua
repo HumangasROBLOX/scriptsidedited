@@ -1092,12 +1092,12 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 			TextBox.Size = UDim2.new(0, 375, 0, 32)
 			TextBox.Font = Enum.Font.SourceSans
 			TextBox.Text = ""
-			TextBox.PlaceholderText = "Walkspeed"
-			TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
-			TextBox.TextSize = 14.000
+			TextBox.PlaceholderText = placeholdertext
+			TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+			TextBox.TextSize = 15.000
 			
 			TextBox:GetPropertyChangedSignal("Text"):Connect(function()
-				callback(TextBox.Text)
+				pcall(callback, TextBox.Text)
 			end)
 			NewPages.CanvasSize = UDim2.new(0, 0, 0, ElementListing.AbsoluteContentSize.Y)
 		end
