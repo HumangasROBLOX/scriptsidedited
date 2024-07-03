@@ -168,14 +168,14 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 	
 	Close.Name = "Close"
 	Close.Parent = MainFrame
-	Close.AnchorPoint = Vector2.new(0.1, 0.1)
+	Close.AnchorPoint = Vector2.new(0.1, 0.9)
 	Close.Text = "X"
-	Close.Font = Enum.Font.GothamBold
+	Close.Font = Enum.Font.Ubuntu
 	Close.TextScaled = true
 	Close.TextColor3 = Color3.fromRGB(255, 255, 255)
 	Close.BorderSizePixel = 0
-	Close.Position = UDim2.new(0.9, 0,0.9, 0)
-	Close.Size = UDim2.new(.1, 0, 0, .1)
+	Close.Position = UDim2.new(0.9, 0,0.1, 0)
+	Close.Size = UDim2.new(.1, 0, .1,0)
 	Close.ClipsDescendants = true
 	Close.BackgroundTransparency = 1
 
