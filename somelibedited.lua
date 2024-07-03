@@ -28,7 +28,7 @@ coroutine.wrap(
 
 local WindowTable = {}
 
-function WindowTable:Window(Htitle,GMtitle,toclose)
+function WindowTable:Window(Htitle,GMtitle,toclose, uicolor)
 	local Library = Instance.new("ScreenGui")
 	local MainFrame = Instance.new("Frame")
 	local Close = Instance.new("TextButton")
@@ -182,7 +182,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 	MainFrameGlow.Name = "MainFrameGlow"
 	MainFrameGlow.Parent = Library
 	MainFrameGlow.AnchorPoint = Vector2.new(0.5, 0.5)
-	MainFrameGlow.BackgroundColor3 = Color3.fromRGB(0, 24, 59)
+	MainFrameGlow.BackgroundColor3 = uicolor
 	MainFrameGlow.BackgroundTransparency = 0
 	MainFrameGlow.BorderSizePixel = 0
 	MainFrameGlow.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -501,10 +501,6 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 	Close.MouseButton1Click:Connect(function()
 		Library:Destroy()
 	end)
-	
-	local function changeuicolor(color)
-		MainFrameGlow.BackgroundColor3 = color
-	end
 
 	local function YLNRBC_fake_script() -- MainTabsBtn.MainTabsBtnScript 
 		local script = Instance.new('LocalScript', MainTabsBtn)
