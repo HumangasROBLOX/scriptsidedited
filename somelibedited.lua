@@ -1097,7 +1097,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 			TextBox.TextSize = 14.000
 			
 			TextBox:GetPropertyChangedSignal("Text"):Connect(function()
-				callback = TextBox.Text
+				callback(TextBox.Text)
 			end)
 			NewPages.CanvasSize = UDim2.new(0, 0, 0, ElementListing.AbsoluteContentSize.Y)
 		end
